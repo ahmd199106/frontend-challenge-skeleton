@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      id: "1",
+      name: "John",
+      lastName: "Doe",
+      email: "john.doe@example.com",
+      role: "admin"
+    },
+    {
+      id: "2",
+      name: "Mary",
+      lastName: "Jane",
+      email: "mary.jane@example.com",
+      role: "viewer"
+    }
+  ]
+}
