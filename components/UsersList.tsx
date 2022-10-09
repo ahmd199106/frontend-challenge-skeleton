@@ -12,14 +12,17 @@ import {
   FormLabel,
   Flex,
   Text,
+  Divider,
 } from '@chakra-ui/react';
 import React, { Key, useState } from 'react';
+import { BellIcon, AddIcon, DeleteIcon } from '@chakra-ui/icons';
 
 type UsersListProps = {
   id: number;
   email?: string;
   fullName?: string;
   deleteUser: (id: number) => void;
+  role?: string;
 };
 
 const UsersList: React.FC<UsersListProps> = ({
@@ -27,13 +30,25 @@ const UsersList: React.FC<UsersListProps> = ({
   fullName,
   id,
   deleteUser,
+  role,
 }) => {
+  console.log(role, 'role is');
   return (
-    <Flex direction='column'>
-      <Text>{email}</Text>
-      <Text>{fullName}</Text>
-      <Button onClick={() => deleteUser(id)}>delete user</Button>
-    </Flex>
+    <>
+      <Flex direction='row' width='100%' justify='space-between'>
+        <Flex direction='column'>
+          <Text>{fullName}</Text>
+          <Text color='grey'>{email}</Text>
+        </Flex>
+        <Flex align='center'>
+          <Text mr='50px'>{role}</Text>
+          <Button onClick={() => deleteUser(id)}>
+            <DeleteIcon bg='white' p='1px' />
+          </Button>
+        </Flex>
+      </Flex>
+      <Divider />
+    </>
   );
 };
 export default UsersList;
